@@ -1,0 +1,60 @@
+group 'com.zixuan.flutter_tenc_map'
+version '1.0-SNAPSHOT'
+
+buildscript {
+    ext.kotlin_version = '1.3.10'
+    repositories {
+        google()
+        jcenter()
+        maven { url "http://maven.mjtown.cn/"}
+        maven {
+            url 'https://dl.bintray.com/cjt/maven'
+        }
+    }
+
+    dependencies {
+        classpath 'com.android.tools.build:gradle:3.2.1'
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+    }
+}
+
+rootProject.allprojects {
+    repositories {
+        google()
+        jcenter()
+        maven { url 'https://jitpack.io'
+
+        }
+
+    }
+}
+
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+
+android {
+    compileSdkVersion 28
+
+    sourceSets {
+        main.java.srcDirs += 'src/main/kotlin'
+    }
+    defaultConfig {
+
+        minSdkVersion 21
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+    lintOptions {
+        disable 'InvalidPackage'
+    }
+}
+
+dependencies {
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation  "androidx.appcompat:appcompat:1.0.0+"
+
+    api files('libs/TencentLocationSdk_v7.2.5_r63177f7f_20200211_143623.jar')
+    implementation 'androidx.core:core-ktx:1.0.2'
+    implementation 'com.tencent.map:tencent-map-vector-sdk:latest.release'
+}
+
+
