@@ -35,7 +35,7 @@ import java.util.concurrent.atomic.AtomicInteger
  * @version : 1.0.0
  */
 
-class MapView(context: Context?,messages:BinaryMessenger?,id:Int?,val activityState: AtomicInteger):PlatformView, MethodChannel.MethodCallHandler, Application.ActivityLifecycleCallbacks {
+class MapView(context: Context ,messages:BinaryMessenger?,id:Int?,val activityState: AtomicInteger):PlatformView, MethodChannel.MethodCallHandler, Application.ActivityLifecycleCallbacks {
 
     //标记记是否销毁
     private var disposed = false
